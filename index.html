@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./dropAndDropZone.css">
+    <title>Drag zone</title>
+</head>
+<body>
+    <form id="myForm">
+        <input type="text" placeholder="test" name="test" />
+        <input id="file" name="file" />
+        <div id="dropZone"></div>
+        <button type="submit">Send</button>
+    </form>
+
+    <script src="./dropZoneFile.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', e => {
+            document.querySelector('#dropZone').dropZone({
+                multiple: true,
+                targetInput: document.getElementById('file')
+            });
+        });
+
+        document.querySelector('#myForm').addEventListener('submit', e => {
+            e.preventDefault();
+            let formValues = new FormData(e.target);
+        });
+    </script>
+
+</body>
+</html>
