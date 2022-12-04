@@ -1,4 +1,4 @@
-//Developer by Paul
+//Developer by ShadowChesse99
 Element.prototype.dropZone = function(configuration) {
     let dropZoneElement = this, 
         input = document.createElement('input'),
