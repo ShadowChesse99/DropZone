@@ -15,19 +15,37 @@
         <button type="submit">Send</button>
     </form>
 
+    <div id="dropzone2"></div>
+    <button type="button" id="send">Send</button>
+
     <script src="./dropZoneFile.js"></script>
     <script>
+        var dropzone2;
+
         document.addEventListener('DOMContentLoaded', e => {
+            //With form
             document.querySelector('#dropZone').dropZone({
                 multiple: true,
                 targetInput: document.getElementById('file')
             });
+
+            //Without form
+            dropzone2 = document.querySelector('#dropzone2').dropZone({
+                multiple: true
+            });
         });
 
+        //Get data via form data
         document.querySelector('#myForm').addEventListener('submit', e => {
             e.preventDefault();
             let formValues = new FormData(e.target);
         });
+
+        //Get data via dropzone object
+        document.querySelector('#send').addEventListener('click', e => {
+            let files = dropzone2.getFiles();
+            console.log(files)
+        })
     </script>
 
 </body>
